@@ -1,7 +1,3 @@
-# data_analysis_dashboard.py
-# -------------------------
-# Imports (only allowed libs)
-# -------------------------
 try:
     import streamlit as st
     import pandas as pd
@@ -13,15 +9,11 @@ except Exception as imp_err:
     print(f"Error importing required libraries: {imp_err}")
     raise
 
-# -------------------------
 # Global settings & theme
-# -------------------------
 sns.set_theme(style="whitegrid")  # consistent Seaborn styling
 plt.rcParams["figure.dpi"] = 110
 
-# -------------------------
 # Helper functions
-# -------------------------
 def safe_read_csv(uploaded_file):
     """
     Safely read a CSV uploaded via Streamlit file_uploader.
@@ -191,9 +183,7 @@ def safe_fill_mean(df):
         return df
 
 
-# -------------------------
 # Streamlit app layout start
-# -------------------------
 def main():
     st.set_page_config(page_title="Data Analysis Dashboard", layout="wide")
     st.title("📊 Data Analysis and Visualization Dashboard")
@@ -220,9 +210,7 @@ def main():
     ]
     choice = st.sidebar.selectbox("Go to", pages)
 
-    # -------------------------
     # Upload Dataset Section
-    # -------------------------
     if choice == "📂 Upload Dataset":
         st.header("📂 Upload Dataset")
         st.caption("Upload a CSV file to begin. The app validates and reads the file safely.")
@@ -256,9 +244,9 @@ def main():
             except Exception as e:
                 st.error(f"Error displaying dataset information: {e}")
 
-    # -------------------------
+ 
     # Data Summary Section
-    # -------------------------
+   
     elif choice == "📊 Data Summary":
         st.header("📊 Data Summary")
         st.caption("View descriptive statistics for numeric and categorical columns.")
@@ -305,9 +293,9 @@ def main():
             except Exception as e:
                 st.error(f"Unexpected error in Data Summary: {e}")
 
-    # -------------------------
+  
     # Visualization Section
-    # -------------------------
+
     elif choice == "📈 Visualization":
         st.header("📈 Visualization")
         st.caption("Choose a plot type and select appropriate columns. All plotting is validated.")
@@ -422,9 +410,9 @@ def main():
                 except Exception as e:
                     st.error(f"Unexpected error in Visualization: {e}")
 
-    # -------------------------
+
     # Missing Data Handling Section
-    # -------------------------
+  
     elif choice == "🧩 Missing Data Handling":
         st.header("🧩 Missing Data Handling")
         st.caption("Inspect missing values and apply simple strategies (drop rows or fill numeric columns with mean).")
@@ -487,9 +475,9 @@ def main():
             except Exception as e:
                 st.error(f"Unexpected error in Missing Data Handling: {e}")
 
-    # -------------------------
+  
     # Download Report Section
-    # -------------------------
+
     elif choice == "📥 Download Report":
         st.header("📥 Download Report")
         st.caption("Generate and download descriptive summary report (CSV).")
@@ -515,9 +503,9 @@ def main():
             except Exception as e:
                 st.error(f"Unexpected error in Download Report: {e}")
 
-    # -------------------------
+ 
     # About Section
-    # -------------------------
+   
     elif choice == "ℹ️ About":
         st.header("ℹ️ About")
         try:
@@ -545,9 +533,8 @@ def main():
         except Exception as e:
             st.error(f"Error displaying About section: {e}")
 
-    # -------------------------
     # Footer & small debug/help
-    # -------------------------
+
     st.markdown("---")
     st.caption("For best results, ensure your CSV has headers in the first row and consistent column types. The app is designed to handle invalid inputs gracefully and will display helpful messages if something goes wrong.")
 
@@ -561,4 +548,5 @@ if __name__ == "__main__":
             st.error(f"An unexpected error occurred while running the app: {app_e}")
         except Exception:
             print(f"An unexpected error occurred while running the app: {app_e}")
+
 
