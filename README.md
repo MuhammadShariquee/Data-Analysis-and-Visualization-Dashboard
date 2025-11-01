@@ -42,3 +42,33 @@ pip install -r requirements.txt
 3. Run the dashboard
 streamlit run data_analysis_dashboard.py
 
+Usage
+
+Go to 📂 Upload Dataset and upload a CSV file.
+
+Explore data in 📊 Data Summary.
+
+Visualize columns using 📈 Visualization.
+
+Inspect and handle missing data in 🧩 Missing Data Handling.
+
+Download a summary report in 📥 Download Report.
+
+Notes
+
+Only CSV files are supported.
+
+Original uploaded data is preserved in memory; all transformations apply to the in-memory copy.
+
+Ensure CSVs have headers in the first row and consistent column types.
+
+The app is designed to handle invalid inputs gracefully and will display helpful error messages.
+
+Author
+
+Muhammad Sharique
+BS Software Engineering, University of Sindh
+
+License
+
+This project is open-source and free to use for educational purposes.
